@@ -13,10 +13,12 @@ def roman_to_int(roman_string):
         'M': 1000
     }
     total = 0
+    i = 0
     for i in range(len(roman_string) - 1):
         if roman[roman_string[i]] > roman[roman_string[i + 1]]:
             total += roman[roman_string[i]]
         else:
             total -= roman[roman_string[i]]
+        i += 1
     total += roman[roman_string[i]]
     return total
