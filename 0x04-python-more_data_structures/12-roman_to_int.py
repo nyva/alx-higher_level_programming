@@ -12,10 +12,11 @@ def roman_to_int(roman_string):
         'D': 500,
         'M': 1000
     }
-    result = 0
-    for i in range(len(roman_string)):
-        if i > 0 and roman[roman_string[i]] > roman[roman_string[i - 1]]:
-            result += roman[roman_string[i]] - 2 * roman[roman_string[i - 1]]
+    total = 0
+    for i in range(len(roman_string) - 1):
+        if roman[roman_string[i]] > roman[roman_string[i + 1]]:
+            total += roman[roman_string[i]]
         else:
-            result += roman[roman_string[i]]
-    return result
+            total -= roman[roman_string[i]]
+    total += roman[roman_string[i]]
+    return total
